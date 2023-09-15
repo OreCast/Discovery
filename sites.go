@@ -2,27 +2,9 @@ package main
 
 // Site object
 type Site struct {
-	Name string `json:"name"`
-	URL  string `json:"url"`
+	Name string `json:"name" binding:"required"`
+	URL  string `json:"url" binding:"required"`
 }
 
-// helper function to return site objects
-func sites() []Site {
-	var out []Site
-	site := Site{
-		Name: "SiteA",
-		URL:  "http://aaa.com",
-	}
-	out = append(out, site)
-	site = Site{
-		Name: "SiteB",
-		URL:  "http://bbb.com",
-	}
-	out = append(out, site)
-	site = Site{
-		Name: "SiteC",
-		URL:  "http://ccc.com",
-	}
-	out = append(out, site)
-	return out
-}
+// global site list we keep in server
+var _sites []Site
