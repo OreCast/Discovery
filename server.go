@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -33,5 +34,5 @@ func setupRouter() *gin.Engine {
 
 func Server(configFile string) {
 	r := setupRouter()
-	r.Run(":9091")
+	r.Run(fmt.Sprintf(":%d", Config.Port))
 }
