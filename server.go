@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -34,5 +35,7 @@ func setupRouter() *gin.Engine {
 
 func Server(configFile string) {
 	r := setupRouter()
-	r.Run(fmt.Sprintf(":%d", Config.Port))
+	sport := fmt.Sprintf(":%d", Config.Port)
+	log.Printf("Start HTTP server %s", sport)
+	r.Run(sport)
 }
