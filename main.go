@@ -8,6 +8,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"runtime"
 	"time"
 
@@ -30,6 +31,10 @@ func main() {
 	if version {
 		fmt.Println("server version:", info())
 		return
+	}
+	err := parseConfig(config)
+	if err != nil {
+		log.Fatalf("unable to parse config %s, error %v\n", config, err)
 	}
 	Server(config)
 }
