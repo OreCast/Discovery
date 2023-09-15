@@ -7,7 +7,7 @@ type Site struct {
 	Endpoint     string `json:"endpoint" binding:"required"`
 	AccessKey    string `json:"access_key" binding:"required"`
 	AccessSecret string `json:"access_secret" binding:"required"`
-	UseSSL       bool   `json:"use_ssl" binding:"required"`
+	UseSSL       bool   `json:"use_ssl"`
 }
 
 // global site list we keep in server
