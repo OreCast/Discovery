@@ -43,7 +43,7 @@ func parseConfig(configFile string) error {
 
 	// default values
 	if Config.Port == 0 {
-		Config.Port = 9091
+		Config.Port = 8320
 	}
 	if Config.Cipher == "" {
 		Config.Cipher = "aes"
