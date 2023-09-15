@@ -24,7 +24,16 @@ func setupRouter() *gin.Engine {
 		var site Site
 		err := c.BindJSON(&site)
 		if err == nil {
-			_sites = append(_sites, site)
+			found := false
+			for _, s := range _sites {
+				if s.Name == site.Name && s.URL == site.URL {
+					found = true
+					break
+				}
+			}
+			if !found {
+				_sites = append(_sites, site)
+			}
 			c.JSON(200, gin.H{"status": "ok"})
 		} else {
 			c.JSON(400, gin.H{"status": "fail", "error": err.Error()})
