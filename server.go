@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,29 +15,12 @@ func setupRouter() *gin.Engine {
 	// gin.DisableConsoleColor()
 	r := gin.Default()
 
-	r.GET("/sites", func(c *gin.Context) {
-		data := _sites
-		c.AsciiJSON(http.StatusOK, data)
-	})
-	r.POST("/sites", func(c *gin.Context) {
-		var site Site
-		err := c.BindJSON(&site)
-		if err == nil {
-			found := false
-			for _, s := range _sites {
-				if s.Name == site.Name && s.URL == site.URL {
-					found = true
-					break
-				}
-			}
-			if !found {
-				_sites = append(_sites, site)
-			}
-			c.JSON(200, gin.H{"status": "ok"})
-		} else {
-			c.JSON(400, gin.H{"status": "fail", "error": err.Error()})
-		}
-	})
+	// GET routes
+	r.GET("/sites", SitesHandler)
+
+	// POST routes
+	r.POST("/sites", SitesPostHandler)
+
 	return r
 }
 
