@@ -21,8 +21,9 @@ type Configuration struct {
 	Verbose int    `json:"verbose"`  // verbose output
 
 	// OreCast parts
-	Password string `json:"secret"` // data-discovery password
-	Cipher   string `json:"cipher"` // data-discovery cipher
+	Secret        string `json:"secret"`          // data-discovery secret
+	Cipher        string `json:"cipher"`          // data-discovery cipher
+	AuthzClientId string `json:"authz_client_id"` // client id of OAuth
 }
 
 // Config variable represents configuration object

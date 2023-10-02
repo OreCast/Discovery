@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	authz "github.com/OreCast/Authz/auth"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,8 +19,12 @@ func setupRouter() *gin.Engine {
 	// GET routes
 	r.GET("/sites", SitesHandler)
 
-	// POST routes
-	r.POST("/sites", SitesPostHandler)
+	// all POST methods ahould be authorized
+	authorized := r.Group("/")
+	authorized.Use(authz.TokenMiddleware(Config.AuthzClientId, Config.Verbose))
+	{
+		authorized.POST("/sites", SitesPostHandler)
+	}
 
 	return r
 }
