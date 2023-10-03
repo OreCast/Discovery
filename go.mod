@@ -2,10 +2,12 @@ module github.com/OreCast/Discovery
 
 go 1.21.0
 
-require github.com/gin-gonic/gin v1.9.1
+require (
+	github.com/OreCast/common/authz v0.0.0-20231003104242-62c0b468258a
+	github.com/gin-gonic/gin v1.9.1
+)
 
 require (
-	github.com/OreCast/Authz/auth v0.0.0-20231002172245-1d3438afcaa7 // indirect
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect

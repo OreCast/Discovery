@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	authz "github.com/OreCast/Authz/auth"
+	authz "github.com/OreCast/common/authz"
 	"github.com/gin-gonic/gin"
 )
 
