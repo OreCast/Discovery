@@ -25,6 +25,7 @@ func setupRouter() *gin.Engine {
 	authorized.Use(authz.TokenMiddleware(oreConfig.Config.Authz.ClientId, oreConfig.Config.Discovery.Verbose))
 	{
 		authorized.POST("/sites", SitesPostHandler)
+		authorized.DELETE("/site/:site", SiteDeleteHandler)
 	}
 
 	return r
