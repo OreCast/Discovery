@@ -33,6 +33,8 @@ func SitesPostHandler(c *gin.Context) {
 		if !found {
 			_sites = append(_sites, site)
 		}
+		// insert into MongoDB
+		site.mongoInsert()
 		c.JSON(200, gin.H{"status": "ok"})
 	} else {
 		c.JSON(400, gin.H{"status": "fail", "error": err.Error()})
@@ -47,6 +49,8 @@ func SiteDeleteHandler(c *gin.Context) {
 		for _, site := range _sites {
 			if site.Name != params.Site {
 				sites = append(sites, site)
+				// remove record from MongoDB
+				site.mongoRemove()
 			}
 		}
 		if len(_sites) == len(sites) {

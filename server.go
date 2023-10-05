@@ -6,6 +6,7 @@ import (
 
 	authz "github.com/OreCast/common/authz"
 	oreConfig "github.com/OreCast/common/config"
+	oreMongo "github.com/OreCast/common/mongo"
 	"github.com/gin-gonic/gin"
 )
 
@@ -32,6 +33,10 @@ func setupRouter() *gin.Engine {
 }
 
 func Server() {
+	// init MongoDB
+	oreMongo.InitMongoDB(oreConfig.Config.MetaData.DBUri)
+
+	// setup web router and start the service
 	r := setupRouter()
 	sport := fmt.Sprintf(":%d", oreConfig.Config.Discovery.Port)
 	log.Printf("Start HTTP server %s", sport)
