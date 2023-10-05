@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	oreConfig "github.com/OreCast/common/config"
 	"github.com/gin-gonic/gin"
 )
 
@@ -34,7 +35,10 @@ func SitesPostHandler(c *gin.Context) {
 			_sites = append(_sites, site)
 		}
 		// upsert into MongoDB
-		site.mongoUpsert("Name")
+		if oreConfig.Config.Discovery.MongoDB.DBUri != "" {
+			//         site.mongoUpsert("Name")
+			site.mongoInsert()
+		}
 		c.JSON(200, gin.H{"status": "ok"})
 	} else {
 		c.JSON(400, gin.H{"status": "fail", "error": err.Error()})
