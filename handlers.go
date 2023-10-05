@@ -33,8 +33,8 @@ func SitesPostHandler(c *gin.Context) {
 		if !found {
 			_sites = append(_sites, site)
 		}
-		// insert into MongoDB
-		site.mongoInsert()
+		// upsert into MongoDB
+		site.mongoUpsert("Name")
 		c.JSON(200, gin.H{"status": "ok"})
 	} else {
 		c.JSON(400, gin.H{"status": "fail", "error": err.Error()})

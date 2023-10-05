@@ -40,6 +40,17 @@ func (s *Site) mongoInsert() {
 		records)
 }
 
+// upsert Site record to MongoDB by using given key
+func (s *Site) mongoUpsert(key string) {
+	var records []oreMongo.Record
+	records = append(records, s.Record())
+	oreMongo.Upsert(
+		oreConfig.Config.Discovery.MongoDB.DBName,
+		oreConfig.Config.Discovery.MongoDB.DBColl,
+		key,
+		records)
+}
+
 // remove Site record from MongoDB
 func (s *Site) mongoRemove() {
 	spec := bson.M{"name": s.Name}

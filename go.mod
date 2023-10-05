@@ -3,14 +3,15 @@ module github.com/OreCast/Discovery
 go 1.21.0
 
 require (
-	github.com/OreCast/common/authz v0.0.0-20231005114436-f79d6cce30d3
-	github.com/OreCast/common/config v0.0.0-20231005114436-f79d6cce30d3
+	github.com/OreCast/common/authz v0.0.0-20231005151215-0ba3db61fd7c
+	github.com/OreCast/common/config v0.0.0-20231005151215-0ba3db61fd7c
+	github.com/OreCast/common/mongo v0.0.0-20231005151215-0ba3db61fd7c
 	github.com/gin-gonic/gin v1.9.1
+	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 )
 
 require (
-	github.com/OreCast/common/mongo v0.0.0-20231005114436-f79d6cce30d3 // indirect
-	github.com/OreCast/common/utils v0.0.0-20231004124126-425fa159464d // indirect
+	github.com/OreCast/common/utils v0.0.0-20231005151215-0ba3db61fd7c // indirect
 	github.com/bytedance/sonic v1.10.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.0 // indirect
@@ -42,13 +43,12 @@ require (
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	golang.org/x/arch v0.5.0 // indirect
-	golang.org/x/crypto v0.13.0 // indirect
-	golang.org/x/exp v0.0.0-20230728194245-b0cb94b80691 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
+	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	golang.org/x/net v0.15.0 // indirect
-	golang.org/x/sys v0.12.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
-	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
